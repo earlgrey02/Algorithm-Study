@@ -1,8 +1,8 @@
 # Algorithm Study
-> **Coding Test Study**
+> **Problem Solving**
 
 ## Tech
-* **Python(+ PyPy)**
+* **Python**
 
 ## Platform
 * **Baekjoon(Silver ~)** 
