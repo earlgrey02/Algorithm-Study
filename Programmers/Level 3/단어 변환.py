@@ -1,8 +1,6 @@
 from collections import deque, defaultdict
 
 def solution(begin, target, words):
-    visited = defaultdict(int)
-    
     def bfs(v):
         queue = deque([v])
         
@@ -16,5 +14,7 @@ def solution(begin, target, words):
                     queue.append(word)
         
         return 0
+
+    visited = defaultdict(int)
     
     return bfs(begin)

@@ -5,9 +5,6 @@ import sys
 
 input = sys.stdin.readline
 
-n, k = map(int, input().split())
-distance = defaultdict(lambda: inf)
-
 def dijkstra(v):
     heap = []
     heapq.heappush(heap, (0, v))
@@ -22,6 +19,9 @@ def dijkstra(v):
             if 0 <= next_v <= 100000 and next_w < distance[next_v]:
                 distance[next_v] = next_w
                 heapq.heappush(heap, (next_w, next_v))
+
+n, k = map(int, input().split())
+distance = defaultdict(lambda: inf)
 
 dijkstra(n)
 

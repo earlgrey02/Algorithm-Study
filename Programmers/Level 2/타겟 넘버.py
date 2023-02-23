@@ -1,6 +1,4 @@
 def solution(numbers, target):
-    answer = 0
-    
     def dfs(v, depth):
         if depth == len(numbers):
             if v == target:
@@ -9,7 +7,8 @@ def solution(numbers, target):
         else:
             dfs(v + numbers[depth], depth + 1)
             dfs(v - numbers[depth], depth + 1)
-            
-    dfs(0, 0)
     
+    answer = 0
+    dfs(0, 0)
+
     return answer
