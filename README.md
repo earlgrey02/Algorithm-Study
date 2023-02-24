@@ -1,13 +1,24 @@
 # Algorithm Study
+> **Problem Solving**
+
+## Tech
+* **Python(+ PyPy)**
+
+## Platform
+* **Baekjoon(Gold 5 ~)** 
+
+    [![Solved.ac](http://mazassumnida.wtf/api/mini/generate_badge?boj=earlgrey02)](https://solved.ac/earlgrey02)
+* **Programmers(Level 2 ~)**
+
+## Tag
 
 ### [이분 탐색(Binary Search)](https://github.com/earlgrey02/Algorithm-Study/tree/main/Baekjoon/Binary%20Search)
 
 ### [자료 구조(Data Structure)](https://github.com/earlgrey02/Algorithm-Study/tree/main/Baekjoon/Data%20Structure)
 * **스택 & 큐(Stack & Queue)**
-* **힙(Heap)**
 * **해시(Hash)**
-* **서로소 집합**
-* **문자열**
+* **서로소 집합(Disjoin Set Union(DSU))**
+* **문자열(Trie)**
 
 ### [동적 계획법(Dynamic Programming)](https://github.com/earlgrey02/Algorithm-Study/tree/main/Baekjoon/Dynamic%20Programming)
 * **냅색(Knapsack)**
@@ -22,13 +33,3 @@
 
 ### [구현(Implementation)](https://github.com/earlgrey02/Algorithm-Study/tree/main/Baekjoon/Implementation)
 * **시뮬레이션(Simulation)**
-
-## Tech
-* **Python(+ PyPy)**
-
-## Platform
-* **Baekjoon(Gold ~)** 
-
-    [![Solved.ac](http://mazassumnida.wtf/api/mini/generate_badge?boj=earlgrey02)](https://solved.ac/earlgrey02)
-
-* **Programmers(Level 2 ~)**
