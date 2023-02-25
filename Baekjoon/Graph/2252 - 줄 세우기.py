@@ -4,7 +4,7 @@ import sys
 input = sys.stdin.readline
 
 def topological_sort():
-    queue = deque(list(map(lambda x: x[0], filter(lambda x: x[1] == 0, indegree.items()))))
+    queue = deque([i for i in range(1, n + 1) if indegree[i] == 0])
     
     while queue:
         v = queue.popleft()
@@ -15,8 +15,8 @@ def topological_sort():
                 queue.append(next_v)
 
 n, m = map(int, input().split())
-graph = {i: [] for i in range(1, n + 1)}
-indegree = {i: 0 for i in range(1, n + 1)}
+graph = [[] for _ in range(n + 1)]
+indegree = [0 for _ in range(n + 1)]
 answer = []
 
 for _ in range(m):

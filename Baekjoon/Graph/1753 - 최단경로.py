@@ -1,4 +1,3 @@
-from collections import defaultdict
 from math import inf
 import heapq
 import sys
@@ -22,8 +21,8 @@ def dijkstra(v):
 
 v, e = map(int, input().split())
 k = int(input())
-graph = defaultdict(list)
-distance = defaultdict(lambda: inf)
+graph = [[] for _ in range(v + 1)]
+distance = [inf for _ in range(v + 1)]
 
 for _ in range(e):
     start, end, w = map(int, input().split())
@@ -31,5 +30,4 @@ for _ in range(e):
 
 dijkstra(k)
 
-for i in range(1, v + 1):
-    print(distance[i] if distance[i] != inf else "INF")
+print(*[distance[i] if distance[i] != inf else "INF" for i in range(1, v + 1)], sep="\n")

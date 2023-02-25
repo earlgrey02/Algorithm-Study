@@ -26,7 +26,7 @@ def bfs(v):
 n, m = map(int, input().split())
 matrix = [list(map(int, input().strip())) for _ in range(n)]
 visited = [[[0 for _ in range(2)] for _ in range(m)] for _ in range(n)]
-dy = [1, -1, 0, 0]
-dx = [0, 0, 1, -1]
+dy = (1, -1, 0, 0)
+dx = (0, 0, 1, -1)
 
 print(bfs((0, 0, 0)))

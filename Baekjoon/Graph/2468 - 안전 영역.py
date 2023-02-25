@@ -11,23 +11,29 @@ def bfs(v):
         v = queue.popleft()
         for i in range(4):
             next_v = (v[0] + dy[i], v[1] + dx[i])
-            if 0 <= next_v[0] < n and 0 <= next_v[1] < n and matrix[v[0]][v[1]] == matrix[next_v[0]][next_v[1]] and not visited[next_v[0]][next_v[1]]:
+            if 0 <= next_v[0] < n and 0 <= next_v[1] < n and matrix[next_v[0]][next_v[1]] > rain and not visited[next_v[0]][next_v[1]]:
                 visited[next_v[0]][next_v[1]] = True
-                queue.append(next_v) 
+                queue.append(next_v)
 
 n = int(input())
-matrix = [list(input().strip()) for _ in range(n)]
+matrix = [list(map(int, input().split())) for _ in range(n)]
+rain = 0
+answer = 0
+cnt = 1
 dy = (1, -1, 0, 0)
 dx = (0, 0, 1, -1)
 
-for matrix in (matrix, [list(map(lambda x: "R" if x == "G" else x, row)) for row in matrix]):
+while cnt > 0:
     visited = [[False for _ in range(n)] for _ in range(n)]
-    answer = 0
+    cnt = 0
 
     for i in range(n):
         for j in range(n):
-            if not visited[i][j]:
+            if matrix[i][j] > rain and not visited[i][j]:
                 bfs((i, j))
-                answer += 1
+                cnt += 1
+    
+    answer = max(answer, cnt)
+    rain += 1
 
-    print(answer, end=' ')
+print(answer)

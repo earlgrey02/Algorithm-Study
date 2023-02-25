@@ -20,8 +20,8 @@ def dijkstra(v):
                 heapq.heappush(heap, (next_w, next_v))
 
 n, m = [int(input()) for _ in range(2)]
-graph = {i: [] for i in range(1, n + 1)}
-distance = {i: inf for i in range(1, n + 1)}
+graph = [[] for i in range(n + 1)]
+distance = [inf for _ in range(n + 1)]
 
 for _ in range(m):
     start, end, w = map(int, input().split())

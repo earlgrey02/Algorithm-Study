@@ -5,7 +5,7 @@
 * **Python(+ PyPy)**
 
 ## Platform
-* **Baekjoon(Gold 5 ~)** 
+* **Baekjoon(Silver ~)** 
 
     [![Solved.ac](http://mazassumnida.wtf/api/mini/generate_badge?boj=earlgrey02)](https://solved.ac/earlgrey02)
 * **Programmers(Level 2 ~)**
@@ -14,11 +14,13 @@
 
 ### [이분 탐색(Binary Search)](https://github.com/earlgrey02/Algorithm-Study/tree/main/Baekjoon/Binary%20Search)
 
+### [비트마스킹(Bitmasking)](https://github.com/earlgrey02/Algorithm-Study/tree/main/Baekjoon/Bitmasking)
+
 ### [자료 구조(Data Structure)](https://github.com/earlgrey02/Algorithm-Study/tree/main/Baekjoon/Data%20Structure)
 * **스택 & 큐(Stack & Queue)**
 * **해시(Hash)**
-* **서로소 집합(Disjoint Set Union(DSU))**
-* **문자열**
+* **서로소 집합(Disjoin Set Union(DSU))**
+* **문자열(Trie)**
 
 ### [동적 계획법(Dynamic Programming)](https://github.com/earlgrey02/Algorithm-Study/tree/main/Baekjoon/Dynamic%20Programming)
 * **냅색(Knapsack)**

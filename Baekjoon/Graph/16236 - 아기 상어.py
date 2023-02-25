@@ -21,11 +21,11 @@ def bfs(v):
 
 n = int(input())
 matrix = [list(map(int, input().split())) for _ in range(n)]
-dy = [1, -1, 0, 0]
-dx = [0, 0, 1, -1]
 size = 2
 exp = 0
 answer = 0
+dy = (1, -1, 0, 0)
+dx = (0, 0, 1, -1)
 
 for i in range(n):
     for j in range(n):

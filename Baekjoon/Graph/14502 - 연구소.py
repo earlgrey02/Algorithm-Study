@@ -21,22 +21,21 @@ def bfs(v, matrix):
 n, m = map(int, input().split())
 matrix = [list(map(int, input().split())) for _ in range(n)]
 blanks = [(i, j) for i in range(n) for j in range(m) if matrix[i][j] == 0]
-dy = [1, -1 , 0, 0]
-dx = [0, 0, 1, -1]
-answers = []
+answer = 0
+dy = (1, -1 , 0, 0)
+dx = (0, 0, 1, -1)
 
 for case in combinations(blanks, 3):
     matrix_copy = deepcopy(matrix)
     visited = [[False for _ in range(m)] for _ in range(n)]
-    
+
     for blank in case:
         matrix_copy[blank[0]][blank[1]] = 1
-    
     for i in range(n):
         for j in range(m):
             if matrix[i][j] == 2 and not visited[i][j]:
                 bfs((i, j), matrix_copy)
-    
-    answers.append(sum(map(lambda x: x.count(0), matrix_copy)))
 
-print(max(answers))
+    answer = max(sum(map(lambda x: x.count(0), matrix_copy)), answer)
+
+print(answer)

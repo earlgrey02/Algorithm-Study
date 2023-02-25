@@ -16,9 +16,9 @@ def bfs(v, visited):
 
 r, c = map(int, input().split())
 matrix = [list(input().strip()) for _ in range(r)]
-dy = [1, -1, 0, 0]
-dx = [0, 0, 1, -1]
 answer = 0
+dy = (1, -1, 0, 0)
+dx = (0, 0, 1, -1)
 
 bfs((0, 0), matrix[0][0])
 

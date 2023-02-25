@@ -1,4 +1,4 @@
-from collections import deque, defaultdict
+from collections import deque
 import sys
 
 input = sys.stdin.readline
@@ -22,8 +22,8 @@ k = int(input())
 
 for _ in range(k):
     v, e = map(int, input().split())
-    graph = defaultdict(list)
-    visited = defaultdict(int)
+    graph = [[] for _ in range(v + 1)]
+    visited = [0 for _ in range(v + 1)]
     answer = "YES"
 
     for _ in range(e):

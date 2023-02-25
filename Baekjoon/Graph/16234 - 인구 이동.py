@@ -21,9 +21,9 @@ def bfs(v):
 
 n, l, r = map(int, input().split())
 matrix = [list(map(int, input().split())) for _ in range(n)]
-dy = [1, -1, 0, 0]
-dx = [0, 0, 1, -1]
 answer = 0
+dy = (1, -1, 0, 0)
+dx = (0, 0, 1, -1)
 
 while True:
     visited = [[False for _ in range(n)] for _ in range(n)]
@@ -33,12 +33,12 @@ while True:
         for j in range(n):
             if not visited[i][j]:
                 union = bfs((i, j))
-                if len(union) != 1:
+                if len(union) > 1:
                     end = False
                     population = sum(map(lambda x: x[1], union)) // len(union)
                     for v in map(lambda x: x[0], union):
                         matrix[v[0]][v[1]] = population
-    
+
     if end:
         break
     answer += 1
