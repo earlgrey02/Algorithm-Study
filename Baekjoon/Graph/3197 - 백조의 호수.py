@@ -37,33 +37,15 @@ def ice_bfs():
     
     return next_ice
 
-def init_ice():
-    for i in range(r):
-        for j in range(c):
-            if matrix[i][j] == '.' and not ice_visited[i][j]:
-                queue = deque([(i, j)])
-                ice_visited[i][j] = True
-
-                while queue:
-                    v = queue.popleft()
-                    for k in range(4):
-                        next_v = (v[0] + dy[k], v[1] + dx[k])
-                        if 0 <= next_v[0] < r and 0 <= next_v[1] < c and not ice_visited[next_v[0]][next_v[1]]:
-                            ice_visited[next_v[0]][next_v[1]] = True
-                            if matrix[next_v[0]][next_v[1]] == 'X':
-                                ice.append(next_v)
-                            else:
-                                queue.append(next_v)
-                            
 r, c = map(int, input().split())
 matrix = [list(input().strip()) for _ in range(r)]
 swan_visited = [[False for _ in range(c)] for _ in range(r)]
 ice_visited = [[False for _ in range(c)] for _ in range(r)]
 swans = deque()
 ice = deque()
-dy = [1, -1, 0, 0]
-dx = [0, 0, 1, -1]
 answer = 0
+dy = (1, -1, 0, 0)
+dx = (0, 0, 1, -1)
 
 for i in range(r):
     if len(swans) >= 2:
@@ -75,7 +57,21 @@ for i in range(r):
 
 swan = swans.pop()
 
-init_ice()
+for i in range(r):
+    for j in range(c):
+        if matrix[i][j] == '.' and not ice_visited[i][j]:
+            queue = deque([(i, j)])
+            ice_visited[i][j] = True
+            while queue:
+                v = queue.popleft()
+                for k in range(4):
+                    next_v = (v[0] + dy[k], v[1] + dx[k])
+                    if 0 <= next_v[0] < r and 0 <= next_v[1] < c and not ice_visited[next_v[0]][next_v[1]]:
+                        ice_visited[next_v[0]][next_v[1]] = True
+                        if matrix[next_v[0]][next_v[1]] == 'X':
+                            ice.append(next_v)
+                        else:
+                            queue.append(next_v)
 
 while True:
     swans = swan_bfs()

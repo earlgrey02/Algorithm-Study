@@ -10,7 +10,6 @@ def bfs(v):
     while queue:
         v, cnt = queue.popleft()
         if v == k:
-            print(cnt)
             return cnt
         for next_v in [v + 1, v - 1, v * 2]:
             if 0 <= next_v <= 100000 and visited[next_v] == -1:
@@ -18,13 +17,14 @@ def bfs(v):
                 queue.append((next_v, cnt + 1))
 
 n, k = map(int, input().split())
-visited = [-1] * 100001
+visited = [-1 for _ in range(100001)]
 path = []
 
 cnt = bfs(n)
 
-for i in range(cnt + 1):
+for _ in range(cnt + 1):
     path.append(k)
     k = visited[k]
 
+print(cnt)
 print(*path[::-1])

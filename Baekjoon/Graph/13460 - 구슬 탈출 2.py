@@ -46,13 +46,14 @@ def bfs(v):
                 if not visited[next_red[0]][next_red[1]][next_blue[0]][next_blue[1]]:
                     visited[next_red[0]][next_red[1]][next_blue[0]][next_blue[1]] = visited[red_v[0]][red_v[1]][blue_v[0]][blue_v[1]] + 1
                     queue.append((next_red, next_blue))
+    
     return -1
-                        
+
 n, m = map(int, input().split())
 matrix = [list(input().strip()) for _ in range(n)]
 visited = [[[[0 for _ in range(m)] for _ in range(n)] for _ in range(m)] for _ in range(n)]
-dy = [1, -1, 0, 0]
-dx = [0, 0, 1, -1]
+dy = (1, -1, 0, 0)
+dx = (0, 0, 1, -1)
 
 for i in range(n):
     for j in range(m):

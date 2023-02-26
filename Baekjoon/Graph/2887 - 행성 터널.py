@@ -10,7 +10,13 @@ def find(v):
 def union(v1, v2):
     v1, v2 = find(v1), find(v2)
     if v1 != v2:
-        parent[v2] = v1
+        if rank[v1] == rank[v2]:
+            parent[v2] = v1
+            rank[v1] += 1
+        elif rank[v1] < rank[v2]:
+            parent[v1] = v2
+        else:
+            parent[v2] = v1
 
 def kruskal():
     global answer
@@ -26,6 +32,7 @@ planets = [tuple(map(int, input().split())) for _ in range(n)]
 planet_pos = [sorted(list(map(lambda x: (x[0], x[1][i]), enumerate(planets))), key=lambda x: x[1]) for i in range(3)]
 edges = []
 parent = [i for i in range(n + 1)]
+rank = [0 for _ in range(n + 1)]
 answer = 0
 
 for i in range(3):

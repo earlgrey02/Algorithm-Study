@@ -11,7 +11,13 @@ def find(v):
 def union(v1, v2):
     v1, v2 = find(v1), find(v2)
     if v1 != v2:
-        parent[v2] = v1
+        if rank[v1] == rank[v2]:
+            parent[v2] = v1
+            rank[v1] += 1
+        elif rank[v1] < rank[v2]:
+            parent[v1] = v2
+        else:
+            parent[v2] = v1
 
 def civilization():
     global k
@@ -40,10 +46,11 @@ civils = deque([tuple(i - 1 for i in map(int, input().split())) for _ in range(k
 for i, v in enumerate(civils):
     matrix[v[0]][v[1]] = i + 1
 parent = [i for i in range(k + 1)]
+rank = [0 for _ in range(k + 1)]
 queue = deque()
-dy = [1, -1, 0, 0]
-dx = [0, 0, 1, -1]
 answer = 0
+dy = (1, -1, 0, 0)
+dx = (0, 0, 1, -1)
 
 while k > 1:
     civilization()

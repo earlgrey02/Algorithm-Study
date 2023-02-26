@@ -4,7 +4,7 @@ import sys
 
 input = sys.stdin.readline
 
-def dijkstra(v, graph):
+def dijkstra(v):
     heap = []
     heapq.heappush(heap, (0, v))
     distance = [inf for _ in range(n + 1)]
@@ -22,16 +22,15 @@ def dijkstra(v, graph):
     
     return distance
 
-n, m, x = map(int, input().split())
+n, e = map(int, input().split())
 graph = [[] for _ in range(n + 1)]
-reversed_graph = [[] for _ in range(n + 1)]
 
-for _ in range(m):
+for _ in range(e):
     start, end, w = map(int, input().split())
     graph[start].append((end, w))
-    reversed_graph[end].append((start, w))
+    graph[end].append((start, w))
 
-distance = dijkstra(x, graph)
-reversed_distance = dijkstra(x, reversed_graph)
+v1, v2 = map(int, input().split())
+answer = min(dijkstra(1)[v1] + dijkstra(v1)[v2] + dijkstra(v2)[n], dijkstra(1)[v2] + dijkstra(v2)[v1] + dijkstra(v1)[n])
 
-print(max([reversed_distance[i] + distance[i] for i in range(1, n + 1) if i != x]))
+print(answer if answer != inf else -1)

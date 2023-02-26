@@ -11,14 +11,23 @@ def find(v):
 def union(v1, v2):
     v1, v2 = find(v1), find(v2)
     if v1 != v2:
-        parent[v1] = v2
-        distance[v2] += distance[v1]
+        if rank[v1] == rank[v2]:
+            parent[v2] = v1
+            rank[v1] += 1
+            distance[v1] += distance[v2]
+        elif rank[v1] < rank[v2]:
+            parent[v1] = v2
+            distance[v2] += distance[v1]
+        else:
+            parent[v2] = v1
+            distance[v1] += distance[v2]
 
 t = int(input())
 
 for _ in range(t):
     f = int(input())
     parent = {}
+    rank = defaultdict(int)
     distance = defaultdict(lambda: 1)
     
     for _ in range(f):
