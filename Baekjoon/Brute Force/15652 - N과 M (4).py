@@ -2,13 +2,13 @@ import sys
 
 input = sys.stdin.readline
 
-def dfs(visited):
-    if len(visited) == m:
-        print(*visited)
+def dfs(array):
+    if len(array) == m:
+        print(*array)
         return
 
-    for next_v in range(visited[-1] if visited else 1, n + 1):
-        dfs(visited + [next_v])
+    for next_v in range(array[-1] if array else 1, n + 1):
+        dfs(array + [next_v])
 
 n, m = map(int, input().split())
 

@@ -6,10 +6,12 @@ def dfs(array):
     if len(array) == m:
         print(*array)
         return
-
-    for next_v in range(1, n + 1):
-        dfs(array + [next_v])
+    
+    for i in nums:
+        if i not in array:
+            dfs(array + [i])
 
 n, m = map(int, input().split())
+nums = sorted(map(int, input().split()))
 
 dfs([])
