@@ -1,6 +1,5 @@
 import sys
 
-sys.setrecursionlimit(10 ** 9)
 input = sys.stdin.readline
 
 def find(v):
@@ -18,14 +17,21 @@ def union(v1, v2):
             parent[v1] = v2
         else:
             parent[v2] = v1
-
+            
 n, m = map(int, input().split())
-parent = [i for i in range(n + 1)]
-rank = [0 for _ in range(n + 1)]
+parent = [i for i in range(n)]
+rank = [0 for _ in range(n)]
+answer = 0
 
-for _ in range(m):
-    operator, a, b = map(int, input().split())
-    if operator == 0:
-        union(a, b)
+for i in range(m):
+    start, end = map(int, input().split())
+
+    if answer:
+        continue
+
+    if find(start) == find(end):
+        answer = i + 1
     else:
-        print("YES" if find(a) == find(b) else "NO")
+        union(start, end)
+
+print(answer)
