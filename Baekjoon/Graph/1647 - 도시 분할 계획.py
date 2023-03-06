@@ -23,15 +23,15 @@ def kruskal():
 
     for start, end, w in edges:
         if find(start) != find(end):
-            answer += w
+            answer.append(w)
             union(start, end)
 
-v, e = map(int, input().split())
-edges = sorted([tuple(map(int, input().split())) for _ in range(e)], key=lambda x: x[2])
-parent = [i for i in range(v + 1)]
-rank = [0 for _ in range(v + 1)]
-answer = 0
+n, m = map(int, input().split())
+edges = sorted([tuple(map(int, input().split())) for _ in range(m)], key=lambda x: x[2])
+parent = [i for i in range(n + 1)]
+rank = [0 for _ in range(n + 1)]
+answer = []
 
 kruskal()
 
-print(answer)
+print(sum(answer[:-1]))
